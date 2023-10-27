@@ -6,6 +6,19 @@ const subtract = (a, b) => +a - +b;
 const multiply = (a, b) => +a * +b;
 const divide = (a, b) => +a / +b;
 
+class Operator {
+    constructor(operatorFn, selector, displayText) {
+        this.operationFn = operatorFn;
+        this.selector = selector;
+        this.displayText = displayText;
+    }
+}
+
+const ADD_OPERATOR = new Operator(add, '#add.operator-button', '+');
+const SUBTRACT_OPERATOR = new Operator(subtract, '#subtract.operator-button', '-');
+const MULTIPLY_OPERATOR = new Operator(multiply, '#multiply.operator-button', '×');
+const DIVIDE_OPERATOR = new Operator(divide, '#divide.operator-button', '÷');
+
 const formatNumber = (num) => {
     if (!isFinite(num) || isNaN(num)) {
         return "Impossible!";
@@ -23,32 +36,10 @@ const formatNumber = (num) => {
 }
 
 const updateDisplay = () => {
-    /*
-    let text = formatNumber(operands[0]);
-    if (pendingOperator != null) {
-        text = text + pendingOperator.displayText;
-    }
-    if (operands.length > 1) {
-        text = text + formatNumber(operands[1]);
-    }
-    */
     let text = formatNumber(operands[operands.length - 1]);
     const display = document.querySelector('#display');
     display.textContent = text;
 }
-
-class Operator {
-    constructor(operatorFn, selector, displayText) {
-        this.operationFn = operatorFn;
-        this.selector = selector;
-        this.displayText = displayText;
-    }
-}
-
-const ADD_OPERATOR = new Operator(add, '#add.operator-button', '+');
-const SUBTRACT_OPERATOR = new Operator(subtract, '#subtract.operator-button', '-');
-const MULTIPLY_OPERATOR = new Operator(multiply, '#multiply.operator-button', '×');
-const DIVIDE_OPERATOR = new Operator(divide, '#divide.operator-button', '÷');
 
 const applyPendingOperator = () => {
     const a = operands[0];

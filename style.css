@@ -1,13 +1,28 @@
 :root {
-    --button-main-color: white;
-    --button-main-background-color: hsl(227, 100%, 62%);
-    --button-main-background-color-darker: hsl(227, 100%, calc(62% * 0.9));
-    --button-main-background-color-darker-darker: hsl(227, 100%, calc(62% * 0.9 * 0.9));
-    
-    --button-clear-color: black;
+    --prussian-blue: hsla(215, 32%, 25%, 1);
+
+    --baby-powder: hsla(30, 100%, 99%, 1);
+
+    --orange-ch: 69.398% 6.39;
+    --orange-l: 61.136;
+    --orange: lch(var(--orange-l) var(--orange-ch));
+
+    --cornflower-ch: 63% 280;
+    --cornflower-l: 72;
+    --cornflower-blue: lch(var(--cornflower-l) var(--cornflower-ch));
+
+    --viridian: hsla(167, 17%, 48%, 1);
+
+    --color: var(--prussian-blue);
+    --background-color: var(--baby-powder);
+
+    --button-main-color: var(--color);
+    --button-main-background-color: var(--cornflower-blue);
+    --button-main-background-color-darker: lch(calc(61.177% * 0.9) 62.926, 280.6);
+
+    --button-clear-color: (--prussian-blue);
     --button-clear-background-color: hsl(30, 100%, 62%);
     --button-clear-background-color-darker: hsl(30, 100%, calc(62% * 0.9));
-    --button-clear-background-color-darker-darker: hsl(30, 100%, calc(62% * 0.9 * 0.9));
 }
 
 /* See https://css-tricks.com/international-box-sizing-awareness-day/ */
@@ -15,6 +30,11 @@
 *:before,
 *:after {
     box-sizing: border-box;
+}
+
+body {
+    color: var(--color);
+    background-color: var(--background-color);
 }
 
 /*
@@ -36,10 +56,9 @@ button {
 
 button {
     /* https://lea.verou.me/blog/2021/10/custom-properties-with-defaults/ */
-    --_color: var(--button-main-color, white);
+    --_color: var(--button-main-color, var(--color));
     --_background-color: var(--button-main-background-color, black);
     --_background-color-darker: var(--button-main-background-color-darker, black);
-    --_background-color-darker-darker: var(--button-main-background-color-darker-darker, black);
 
     /* https://moderncss.dev/css-button-styling-guide/#display-styles */
     display: inline-flex;
@@ -77,7 +96,7 @@ button:active {
 button:focus {
     outline-style: solid;
     outline-color: transparent;
-    box-shadow: 0 0 0 4px var(--_background-color-darker-darker);
+    box-shadow: 0 0 0 4px var(--_background-color-darker);
 }
 
 .clear-button {
@@ -121,4 +140,8 @@ button:focus {
 
 .button {
     flex: 1;
+}
+
+#equals-button {
+    flex: 2;
 }
