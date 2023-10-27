@@ -1,8 +1,13 @@
+@font-face {
+    src: url('./fonts/lcdattphonetimedate.woff') format('woff');
+    font-family: 'lcdattphonetimedate';
+}
+
 .calculator {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    width: 8rem;
+    width: 10rem;
     border: #000 1px solid;
     padding: 0.25rem;
 }
@@ -11,7 +16,10 @@
     flex: 1;
     text-align: right;
     border: #000 1px solid;
-    padding: 0.25rem 0.2rem;
+    padding: 0.25rem 0.2rem 0rem 0.2rem;
+    font-family: 'lcdattphonetimedate', 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    background-color: #ddd;
 }
 
 #buttons {
