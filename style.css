@@ -1,10 +1,101 @@
+:root {
+    --button-main-color: white;
+    --button-main-background-color: hsl(227, 100%, 62%);
+    --button-main-background-color-darker: hsl(227, 100%, calc(62% * 0.9));
+    --button-main-background-color-darker-darker: hsl(227, 100%, calc(62% * 0.9 * 0.9));
+    
+    --button-clear-color: black;
+    --button-clear-background-color: hsl(30, 100%, 62%);
+    --button-clear-background-color-darker: hsl(30, 100%, calc(62% * 0.9));
+    --button-clear-background-color-darker-darker: hsl(30, 100%, calc(62% * 0.9 * 0.9));
+}
+
+/* See https://css-tricks.com/international-box-sizing-awareness-day/ */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/*
+   TODO: choose color palette:
+
+   https://buttonbuddy.dev/ 
+*/
+
+button {
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    margin: 0em;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+button {
+    /* https://lea.verou.me/blog/2021/10/custom-properties-with-defaults/ */
+    --_color: var(--button-main-color, white);
+    --_background-color: var(--button-main-background-color, black);
+    --_background-color-darker: var(--button-main-background-color-darker, black);
+    --_background-color-darker-darker: var(--button-main-background-color-darker-darker, black);
+
+    /* https://moderncss.dev/css-button-styling-guide/#display-styles */
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    /* https://moderncss.dev/css-button-styling-guide/#visual-styles */
+    background-color: var(--_background-color);
+    color: var(--_color);
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+
+    /* https://moderncss.dev/css-button-styling-guide/#text-styles */
+    padding: 0.25em 0.75em;
+    min-width: 1ch;
+    min-height: 44px;
+
+    /* https://moderncss.dev/css-button-styling-guide/#text-styles */
+    text-align: center;
+    line-height: 1.1;
+
+    /* https://moderncss.dev/css-button-styling-guide/#hover */
+    transition: 220ms all ease-in-out;
+}
+
+/* https://moderncss.dev/css-button-styling-guide/#font-styles */
+/* https://moderncss.dev/css-button-styling-guide/#active */
+button:hover,
+button:active {
+    background-color: var(--_background-color-darker);
+}
+
+/* https://moderncss.dev/css-button-styling-guide/#focus */
+button:focus {
+    outline-style: solid;
+    outline-color: transparent;
+    box-shadow: 0 0 0 4px var(--_background-color-darker-darker);
+}
+
+.clear-button {
+    --_color: var(--button-clear-color, white);
+    --_background-color: var(--button-clear-background-color, black);
+    --_background-color-darker: var(--button-clear-background-color-darker, black);
+    --_background-color-darker-darker: var(--button-clear-background-color-darker-darker, black);
+}
+
 .calculator {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    width: 10rem;
+    width: 20rem;
     border: #000 1px solid;
     padding: 0.25rem;
+    min-width: auto;
+    font-size: 3rem;
 }
 
 #display {
