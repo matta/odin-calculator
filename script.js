@@ -7,6 +7,9 @@ const multiply = (a, b) => +a * +b;
 const divide = (a, b) => +a / +b;
 
 const formatNumber = (num) => {
+    if (!isFinite(num) || isNaN(num)) {
+        return "Impossible!";
+    }
     const MAX_LENGTH = 10;
     let text = String(num);
     let precision = 10;
