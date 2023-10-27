@@ -1,0 +1,31 @@
+.calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 8rem;
+    border: #000 1px solid;
+    padding: 0.25rem;
+}
+
+#display {
+    flex: 1;
+    text-align: right;
+    border: #000 1px solid;
+    padding: 0.25rem 0.2rem;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.button-row {
+    display: flex;
+    gap: 0.25rem;
+    flex: 1;
+}
+
+.button {
+    flex: 1;
+}
