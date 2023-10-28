@@ -14,10 +14,10 @@ class Operator {
     }
 }
 
-const ADD_OPERATOR = new Operator(add, '#add.operator-button', '+');
-const SUBTRACT_OPERATOR = new Operator(subtract, '#subtract.operator-button', '-');
-const MULTIPLY_OPERATOR = new Operator(multiply, '#multiply.operator-button', '×');
-const DIVIDE_OPERATOR = new Operator(divide, '#divide.operator-button', '÷');
+const ADD_OPERATOR = new Operator(add, '#add', '+');
+const SUBTRACT_OPERATOR = new Operator(subtract, '#subtract', '-');
+const MULTIPLY_OPERATOR = new Operator(multiply, '#multiply', '×');
+const DIVIDE_OPERATOR = new Operator(divide, '#divide', '÷');
 
 const formatNumber = (num) => {
     if (!isFinite(num) || isNaN(num)) {
@@ -80,7 +80,7 @@ const onEqualsClick = () => {
     updateDisplay();
 }
 
-const onAllClearClick = () => {
+const onAlloperateClick = () => {
     operands = [0];
     pendingOperator = null;
     updateDisplay();
@@ -105,7 +105,7 @@ const onAllClearClick = () => {
     registerOperator(DIVIDE_OPERATOR);
 
     document.querySelector('#equals-button').addEventListener('click', onEqualsClick);
-    document.querySelector('#all-clear-button').addEventListener('click', onAllClearClick);
+    document.querySelector('#all-operate-button').addEventListener('click', onAlloperateClick);
 
     updateDisplay();
 }

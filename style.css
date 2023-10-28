@@ -1,28 +1,36 @@
 :root {
     --prussian-blue: hsla(215, 32%, 25%, 1);
 
+    --viridian: hsla(167, 17%, 48%, 1);
     --baby-powder: hsla(30, 100%, 99%, 1);
 
-    --orange-ch: 69.398% 6.39;
-    --orange-l: 61.136;
-    --orange: lch(var(--orange-l) var(--orange-ch));
+    --button-l: 90%;
+    --button-darker-l: calc(var(--button-l) * 0.9);
+    --button-darker-darker-l: calc(var(--button-l) * 0.9 * 0.9);
 
-    --cornflower-ch: 63% 280;
-    --cornflower-l: 72;
-    --cornflower-blue: lch(var(--cornflower-l) var(--cornflower-ch));
+    --orange-ch: 86 61;
+    --orange: lch(var(--button-l) var(--orange-ch));
+    --orange-darker: lch(var(--button-darker-l) var(--orange-ch));
+    --orange-darker-darker: lch(var(--button-darker-darker-l) var(--orange-ch));
 
-    --viridian: hsla(167, 17%, 48%, 1);
+    --cornflower-ch: 63 280;
+    --cornflower: lch(var(--button-l) var(--cornflower-ch));
+    --cornflower-darker: lch(var(--button-darker-l) var(--cornflower-ch));
+    --cornflower-darker-darker: lch(var(--button-darker-darker-l) var(--cornflower-ch));
+
 
     --color: var(--prussian-blue);
     --background-color: var(--baby-powder);
 
     --button-main-color: var(--color);
-    --button-main-background-color: var(--cornflower-blue);
-    --button-main-background-color-darker: lch(calc(61.177% * 0.9) 62.926, 280.6);
+    --button-main-background-color: var(--cornflower);
+    --button-main-background-color-darker: var(--cornflower-darker);
+    --button-main-background-color-darker-darker: var(--cornflower-darker-darker);
 
-    --button-clear-color: (--prussian-blue);
-    --button-clear-background-color: hsl(30, 100%, 62%);
-    --button-clear-background-color-darker: hsl(30, 100%, calc(62% * 0.9));
+    --button-operate-color: var(--color);
+    --button-operate-background-color: var(--orange);
+    --button-operate-background-color-darker: var(--orange-darker);
+    --button-operate-background-color-darker-darker: var(--orange-darker-darker);
 }
 
 /* See https://css-tricks.com/international-box-sizing-awareness-day/ */
@@ -32,9 +40,22 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     color: var(--color);
     background-color: var(--background-color);
+    margin: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /*
@@ -99,18 +120,18 @@ button:focus {
     box-shadow: 0 0 0 4px var(--_background-color-darker);
 }
 
-.clear-button {
-    --_color: var(--button-clear-color, white);
-    --_background-color: var(--button-clear-background-color, black);
-    --_background-color-darker: var(--button-clear-background-color-darker, black);
-    --_background-color-darker-darker: var(--button-clear-background-color-darker-darker, black);
+.operate-button {
+    --_color: var(--button-operate-color, white);
+    --_background-color: var(--button-operate-background-color, black);
+    --_background-color-darker: var(--button-operate-background-color-darker, black);
+    --_background-color-darker-darker: var(--button-operate-background-color-darker-darker, black);
 }
 
 .calculator {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    width: 20rem;
+    width: 24rem;
     border: #000 1px solid;
     padding: 0.25rem;
     min-width: auto;
@@ -135,13 +156,9 @@ button:focus {
 .button-row {
     display: flex;
     gap: 0.25rem;
-    flex: 1;
+    flex: auto;
 }
 
 .button {
     flex: 1;
-}
-
-#equals-button {
-    flex: 2;
 }
